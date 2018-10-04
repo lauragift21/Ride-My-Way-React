@@ -1,0 +1,561 @@
+/* Globals */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+body {
+  font: 16px/1.1;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #fefefe;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+section {
+  flex: 1;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #054752;
+}
+button {
+  border: none;
+  background: #054752;
+  width: 7.79rem;
+  height: 2.76rem;
+  color: #ffffff;
+  border-radius: 9px;
+  font-size: 18px;
+  cursor: pointer;
+}
+button:focus {
+  outline: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.text-center {
+  color: #ffffff;
+  text-align: center;
+  font-size: 40px;
+  padding: 0;
+}
+
+/* Modal  */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Nav */
+header {
+  background: #ffffff;
+  max-height: 70px;
+}
+header a {
+  color: #054752;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+li {
+  display: inline;
+  padding: 0 10px;
+}
+header #brand {
+  float: left;
+  margin-top: 1.4em;
+  padding: 0;
+  font-size: 18px;
+}
+header nav {
+  float: right;
+  margin: 22px 0;
+  font-size: 18px;
+}
+header .brand-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-icon {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url('./assets/img/icon.svg');
+}
+
+/* Hero */
+.hero {
+  background: url('http://res.cloudinary.com/lauragift/image/upload/v1528810037/trading-1_avqrra.jpg')
+    no-repeat -0px;
+  background-size: 100%;
+  height: 400px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 80px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.hero p {
+  color: #ffffff;
+  font-size: 23px;
+}
+
+/* feature */
+#feature {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  color: #413c3c;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+}
+.title {
+  text-align: center;
+  color: #0a0707;
+  font-size: 39px;
+}
+
+/* SignUp form */
+.signup {
+  margin-top: 30px;
+  background: #f4f4ef;
+}
+/* tabs */
+.tabarea {
+  border: 1px solid #ccc;
+  margin: 50px auto;
+  padding: 10px;
+  width: 50vw;
+  background: #ffffff;
+  box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
+}
+.tab {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tablinks {
+  cursor: pointer;
+  padding: 20px;
+  color: #413c3c;
+}
+.tablinks:hover {
+  background: #ddd;
+  border-radius: 10%;
+}
+.form-header {
+  font-size: 30px;
+  text-align: center;
+}
+
+.form-group {
+  padding: 12px;
+  margin-left: 40px;
+  text-align: center;
+}
+.text-input {
+  background: #ffffff;
+  padding: 0.4em;
+  margin-left: 3px;
+  width: 15em;
+  height: 2.3rem;
+  outline-color: #054752;
+}
+.text-email {
+  width: 31em;
+  margin-bottom: 3px;
+  padding: 0.4rem;
+  outline-color: #054752;
+  height: 2.3rem;
+}
+.button {
+  text-align: center;
+}
+.btn {
+  background: #1a7d8f;
+  width: 10em;
+  box-shadow: 0 2px 0 1px rgba(204, 204, 204, 0.185);
+}
+.btn:hover {
+  background: #054752;
+  box-shadow: none;
+}
+.error {
+  color: #cc0033;
+  font-size: 12px;
+  line-height: 15px;
+  margin:  0 0;
+}
+
+/* footer */
+.copyright {
+  background: #0a0707;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* rides */
+.ride {
+  background: url('./assets/img/street-3169981_960_720.jpg');
+  background-size: 100%;
+}
+.card {
+  background: #ffffffd9;
+  width: 90%;
+  margin: 40px;
+}
+.card-header {
+  background: #161414c6;
+  color: #ffffff;
+  padding: 30px;
+  cursor: pointer;
+  text-align: right;
+}
+.card-header a {
+  padding: 0 10px;
+  color: #ffffff;
+}
+.search-ride {
+  border-radius: 5px;
+  padding: 7px;
+  border: none;
+  outline: none;
+  float: left;
+}
+.rides-list {
+  overflow-x: auto;
+}
+.ride-success {
+  border-radius: 10px;
+  background: #3b8686;
+}
+.ride-error {
+  border-radius: 10px;
+  background: #f01616;
+}
+.trip {
+  text-align: center;
+  color: #0a0707;
+  padding: 20px;
+  background: #ddd9d9d9;
+  width: 70%;
+  height: 70vh;
+  margin: 20px auto;
+}
+.trip-btn {
+  width: 10em;
+  margin: 0 10em ;
+  position: relative;
+  left: 5rem;
+  top: 15px;
+}
+.trip-btn:hover {
+  background: #f2f2f2;
+  border: 1px solid #054752;
+  color: #0a0707;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  justify-content: center;
+}
+.portfolio {
+  text-align: center;
+  height: auto;
+  margin: 20px;
+  padding: 30px;
+  color: #ffffff;
+  background: #05050567;
+}
+.portfolio-card {
+  text-align: center;
+  height: 50vh;
+  margin: 20px;
+  padding: 30px;
+  color: #ffffff;
+  background: #05050567;
+}
+.ride-count {
+  display: inline;
+  padding: 20px;
+  font-size: 30px;
+}
+.num {
+  background: #3b8686;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #222222b7;
+  font-size: 40px;
+}
+.ride-details {
+  text-align: left;
+}
+.img {
+  height: 200px;
+  border-radius: 250px;
+}
+.card-details {
+  background: #f5f4f4;
+  padding: 10px 3px;
+  color: #054752;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.user {
+  display: flex;
+  padding-left: 12px;
+}
+
+.username {
+  padding-right: 6px;
+}
+
+
+.lastname {
+  padding-left: 6px;
+}
+
+/* errors */
+#errMessage {
+  text-align: center;
+  color: #dc143c;
+  padding: 6px;
+  border: 1px thin #f2f2f2;
+  border-radius: 4px;
+  background: #f2dede;
+}
+
+.req-btn {
+  display: inline-block;
+  position: relative;
+  left: 14rem;
+  top: 10px;
+}
+
+/* media queries mobile*/
+@media only screen and (max-width: 640px) {
+  header {
+    position: relative;
+  }
+  .head {
+    height: 50px;
+  }
+  .top-nav {
+    height: 7px;
+  }
+  .menu-icon {
+    display: inline-block;
+    color: #054752;
+  }
+  nav ul,
+  nav:active ul {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: #eee;
+    width: 50%;
+    border: 1px solid #444;
+  }
+  nav li {
+    text-align: center;
+    width: 100%;
+    padding-top: 18px;
+    display: block;
+  }
+  nav:hover ul {
+    display: block;
+  }
+  /* hero */
+  .hero h1 {
+    font-size: 40px;
+    margin: 2.8em 0 0 0;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  /* feature */
+  .title {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  #feature {
+    display: flex;
+    flex-direction: column;
+  }
+  #feature .box {
+    width: 80%;
+  }
+  /* signin */
+  .tabarea {
+    width: 70vw;
+  }
+  .tab {
+    display: none;
+  }
+  .form {
+    margin: 0;
+  }
+  .form-header {
+    font-size: 18px;
+  }
+  .form-group {
+    padding: 6px;
+    margin: 0;
+  }
+
+  .btn-text {
+    display: block;
+  }
+  .text-email {
+    width: 12em;
+  }
+  .btn {
+    width: 10em;
+    margin: 4px;
+  }
+  .copyright {
+    min-height: 10vh;
+  }
+  /* card */
+  .card {
+    width: 90%;
+    margin: 10px;
+  }
+  .card-header {
+    text-align: left;
+  }
+  .card-header a {
+    color: #054752;
+  }
+  .search-ride {
+    width: 50vw;
+    margin-bottom: 5px;
+  }
+  .portfolio {
+    display: grid;
+    /* background-size: 100%; */
+  }
+  .profile {
+    height: 100%;
+    display: block;
+  }
+  .num {
+    font-size: 23px;
+  }
+  .ride-count {
+    padding: 10px;
+    font-size: 20px;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .box {
+    padding: 0px;
+  }
+  .tabarea {
+    width: 80vw;
+  }
+  .card {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .callout .box {
+    margin: 1px;
+    padding: 10px;
+  }
+  .portfolio-card {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .form-group {
+    padding: 10px;
+    margin: 0;
+  }
+  .trip-btn {
+    position: relative;
+    left: 6em;
+    top: 15px;
+  }
+  .req-btn {
+    display: inline-block;
+    position: relative;
+    left: 4rem;
+    top: 10px;
+  }
+}
