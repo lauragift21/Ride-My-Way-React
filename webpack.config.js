@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  entry: './src/App.js',
   module: {
     rules: [
       {
@@ -19,7 +20,7 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.scss|css$/,
         use: [
           'style-loader',
           MiniCSSExtractPlugin.loader,
@@ -27,11 +28,22 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8000,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: 'public/index.html',
       filename: './index.html',
     }),
     new MiniCSSExtractPlugin({
