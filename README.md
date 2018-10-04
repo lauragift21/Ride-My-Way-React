@@ -1,4 +1,9 @@
+
 # Ride-My-Way-React
+
+[![Build Status](https://travis-ci.org/lauragift21/Ride-My-Way-React.svg?branch=develop)](https://travis-ci.org/lauragift21/Ride-My-Way-React)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/8a2e27f9bb301da35fc9/test_coverage)](https://codeclimate.com/github/lauragift21/Ride-My-Way-React/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8a2e27f9bb301da35fc9/maintainability)](https://codeclimate.com/github/lauragift21/Ride-My-Way-React/maintainability)
 
 Ride-My-Way is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
