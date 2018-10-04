@@ -9,7 +9,8 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - yarn test:coverage
+  - yarn test
 after_script:
-   - COVERALLS_REPO_TOKEN=$coveralls_repo_token yarn coveralls
+  - yarn test:coverage
+  - yarn add coveralls && cat ./coverage/lcov.info | coveralls
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
