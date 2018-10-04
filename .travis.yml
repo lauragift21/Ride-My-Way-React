@@ -11,4 +11,6 @@ before_script:
 script:
   - yarn test
 after_script:
+  - yarn test:coverage
+  - yarn add coveralls && cat ./coverage/lcov.info | coveralls
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
