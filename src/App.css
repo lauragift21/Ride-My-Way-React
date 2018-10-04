@@ -138,6 +138,10 @@ header .brand-center {
   justify-content: center;
   align-items: center;
 }
+.brand {
+  content: url('./assets/img/car.png');
+  height: 40px;
+}
 .menu-icon {
   display: none;
   width: 40px;
@@ -177,6 +181,22 @@ header .brand-center {
   padding: 20px;
   text-align: center;
 }
+.box-1 {
+  content: url('./assets/img/find-sale.svg');
+  width: 80px;
+  display: inline;
+}
+.box-2 {
+  content: url('./assets/img/riding-car.svg');
+  width: 80px;
+  display: inline;
+}
+.box-3 {
+  content: url('./assets/img/checked.svg');
+  width: 80px;
+  display: inline;
+}
+
 .title {
   text-align: center;
   color: #0a0707;

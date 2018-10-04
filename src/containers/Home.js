@@ -1,7 +1,4 @@
 import React from 'react';
-import img, { ReactComponent as logo } from '../assets/img/find-sale.svg';
-import banner from '../assets/img/riding-car.svg';
-import icon from '../assets/img/checked.svg';
 
 const Home = () => (
     <React.Fragment>
@@ -9,7 +6,7 @@ const Home = () => (
       <div className="container">
         <div id="brand">
           <a href="./index.html">
-            <img src='../assets/img/car.png' alt="brand" height="40px" />
+            <div className="brand"></div>
           </a>
         </div>
         <nav>
@@ -50,15 +47,14 @@ const Home = () => (
       </h1>
       <div className="container" id="feature">
         <div className="box">
-          <img src={img} alt="logo" width="80px" />
-          <logo />
+          <div className="box-1"></div>
           <h1 className="title"> Create Ride Offer </h1>
           <p>
           A driver creates a ride offer on the application for a particular destination.
           </p>
         </div>
         <div className="box">
-          <img src={icon}alt="logo" width="80px" />
+          <div className="box-2"></div>
           <h1 className="title"> Request Ride </h1>
           <p>
             A passenger request for a available ride offers to a destination,
@@ -66,7 +62,7 @@ const Home = () => (
           </p>
         </div>
         <div className="box">
-          <img src={banner} alt="logo" width="80px" />
+          <div className="box-3"></div>
           <h1 className="title"> Take Ride </h1>
           <p>
             After successful request has been accepted. You can
