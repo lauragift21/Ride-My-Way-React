@@ -235,6 +235,7 @@ header .brand-center {
 .form-header {
   font-size: 30px;
   text-align: center;
+  padding-top: 20px;
 }
 
 .form-group {

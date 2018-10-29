@@ -1,15 +1,28 @@
-import React from 'react';
-import { render } from 'react-dom';
-import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './containers/Home';
+import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
 
-const Index = () => (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-      </Switch>
-    </Router>
+import AppRoutes from "./AppRoutes";
+import "./App.css";
+import configureStore from "./store/configureStore";
+// import userIsLoggedIn from "./utils/isLoggedIn";
+// import { logOutUser, setLoggedInUser } from "./actions/auth";
+
+const store = configureStore();
+
+// if (userIsLoggedIn) {
+//   // set current user in store
+//   const user = JSON.parse(localStorage.user);
+//   store.dispatch(setLoggedInUser(user));
+// } else {
+//   store.dispatch(logOutUser());
+// }
+
+// wrap the provider to give the store access to the application
+const App = () => (
+  <Provider store={store}>
+    <AppRoutes />
+  </Provider>
 );
 
-render(<Index />, document.getElementById('root'));
+render(<App />, document.getElementById("app"));
