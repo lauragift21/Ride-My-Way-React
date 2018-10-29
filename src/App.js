@@ -1,15 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './containers/Home';
+import AppRoutes from './AppRoutes';
 
-const Index = () => (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-      </Switch>
-    </Router>
+const App = () => (
+  <div className="App">
+    <AppRoutes />
+  </div>
 );
 
-render(<Index />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
