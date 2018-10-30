@@ -43,7 +43,7 @@ class SignIn extends Component {
     const { isAuthenticated } = this.props;
 
     if (isAuthenticated) {
-      return <Redirect to="/rides" />;
+      this.props.history.push("/rides");
     }
     const submitBtn = (
       <button type="submit" className="btn" id="submit">
@@ -120,7 +120,8 @@ class SignIn extends Component {
 
 SignIn.propTypes = {
   handleSignIn: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
+  isAuthenticated: PropTypes.bool.isRequired,
+  history: PropTypes.object
 };
 
 const mapStateToProps = ({ auth }) => {

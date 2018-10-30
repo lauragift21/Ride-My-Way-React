@@ -7,7 +7,7 @@ const env = process.env.NODE_ENV;
 const apiHost =
   env === "production"
     ? "'https://ride-my-way-server.herokuapp.com'"
-    : "'http://localhost:3000'";
+    : "'http://localhost:8000'";
 
 module.exports = {
   entry: "./src/App.js",

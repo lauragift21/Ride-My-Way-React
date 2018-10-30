@@ -5,7 +5,7 @@ import SignUp from "./containers/SignUp";
 import SignIn from "./containers/SignIn";
 import ProtectedRoute from "./containers/ProtectedRoute";
 import Rides from "./containers/Rides";
-import CreateRide from "./containers/CreateRide";
+import CreateRides from "./containers/CreateRides";
 import MyRides from "./containers/MyRides";
 
 const AppRoutes = () => (
@@ -16,7 +16,7 @@ const AppRoutes = () => (
       <Route exact path="/register" component={SignUp} />
       <Route exact path="/login" component={SignIn} />
       <ProtectedRoute exact path="/rides" component={Rides} />
-      <ProtectedRoute exact path="/offerRides" component={CreateRide} />
+      <ProtectedRoute exact path="/offerRides" component={CreateRides} />
       <ProtectedRoute exact path="/myRides" component={MyRides} />
     </Fragment>
   </Router>

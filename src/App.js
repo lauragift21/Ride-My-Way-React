@@ -6,7 +6,7 @@ import AppRoutes from "./AppRoutes";
 import "./App.css";
 import configureStore from "./store/configureStore";
 import userIsLoggedIn from "./utils/isLoggedIn";
-import { logOutUser, setLoggedInUser } from "./actions/auth";
+import logOutUser, { setLoggedInUser } from "./actions/auth";
 
 const store = configureStore();
 

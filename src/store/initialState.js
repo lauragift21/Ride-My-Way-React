@@ -10,6 +10,16 @@ const initialState = {
       error: ""
     },
     isAuthenticated: false
+  },
+  rides: {
+    data: [],
+    error: "",
+    loading: false
+  },
+  rideRequest: {
+    data: {},
+    error: "",
+    loading: false
   }
 };
 

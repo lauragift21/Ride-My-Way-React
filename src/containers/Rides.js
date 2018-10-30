@@ -1,12 +1,34 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 // assets
 import car from "../assets/img/car.png";
+// actions
+import getRides from "../actions/rides";
+import logOutUser from "../actions/auth";
 // components
 import Footer from "../components/Footer";
 
 class Rides extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleLogOut = this.handleLogOut.bind(this);
+  }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(getRides());
+  }
+
+  handleLogOut() {
+    const { dispatch } = this.props;
+    dispatch(logOutUser());
+  }
+
   render() {
+    // const { rides } = this.props;
     return (
       <>
         <header>
@@ -23,7 +45,7 @@ class Rides extends Component {
                   <Link to="/profile">Profile</Link>
                 </li>
                 <li>
-                  <Link to="/logout" id="logout">
+                  <Link to="/logout" onClick={this.handleLogOut} id="logout">
                     Logout
                   </Link>
                 </li>
@@ -106,4 +128,13 @@ class Rides extends Component {
   }
 }
 
-export default Rides;
+Rides.propTypes = {
+  rides: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  rides: state.rides
+});
+
+export default connect(mapStateToProps)(Rides);
