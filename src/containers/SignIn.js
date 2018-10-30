@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 // components
 import Footer from "../components/Footer";
 // assets
@@ -41,7 +41,10 @@ class SignIn extends Component {
   render() {
     const { email, password } = this.state;
     const { isAuthenticated } = this.props;
-    console.log(this.props);
+
+    if (isAuthenticated) {
+      return <Redirect to="/rides" />;
+    }
     const submitBtn = (
       <button type="submit" className="btn" id="submit">
         Signin
@@ -99,7 +102,7 @@ class SignIn extends Component {
                       <br />
                       <br />
                       <b className="btn-text">
-                        Not a member?
+                        Not a member? &nbsp;
                         <Link to="/register">Register now</Link>
                       </b>
                     </div>
@@ -116,7 +119,8 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
-  handleSignIn: PropTypes.func.isRequired
+  handleSignIn: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = ({ auth }) => {

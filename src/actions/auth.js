@@ -8,7 +8,7 @@ export const logOutUser = () => dispatch => {
   dispatch(logOut());
 };
 
-export const setLoggedInUser = payload => ({
+export const setLoggedInUser = user => ({
   type: SET_CURRENT_USER,
-  payload
+  payload: user
 });
