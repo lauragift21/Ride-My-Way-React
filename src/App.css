@@ -205,6 +205,12 @@ header .brand-center {
 
 /* SignUp form */
 .signup {
+  height: 43rem;
+  margin-top: 30px;
+  background: #f4f4ef;
+}
+.signin {
+   height: 35rem;
   margin-top: 30px;
   background: #f4f4ef;
 }

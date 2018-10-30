@@ -43,7 +43,6 @@ class SignUp extends Component {
 
   render() {
     const { firstname, lastname, email, password, location } = this.state;
-    console.log(this.props);
     const submitBtn = (
       <button type="submit" className="btn" id="submit">
         Signup
