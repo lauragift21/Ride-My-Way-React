@@ -12,7 +12,7 @@ const store = configureStore();
 
 if (userIsLoggedIn) {
   // set current user in store
-  const user = JSON.parse(localStorage.user);
+  const user = JSON.parse(localStorage.user || "{}");
   store.dispatch(setLoggedInUser(user));
 } else {
   store.dispatch(logOutUser());

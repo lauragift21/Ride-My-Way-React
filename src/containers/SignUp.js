@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 // components
 import Footer from "../components/Footer";
 // assets
@@ -43,6 +43,10 @@ class SignUp extends Component {
 
   render() {
     const { firstname, lastname, email, password, location } = this.state;
+    const { isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return <Redirect to="/rides" />;
+    }
     const submitBtn = (
       <button type="submit" className="btn" id="submit">
         Signup
@@ -135,7 +139,7 @@ class SignUp extends Component {
                       <br />
                       <br />
                       <b className="btn-text">
-                        Already a member?
+                        Already a member? &nbsp;
                         <Link to="/login">Sign in instead</Link>
                       </b>
                     </div>
@@ -153,6 +157,7 @@ class SignUp extends Component {
 
 SignUp.propTypes = {
   handleSignUp: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   clearFormError: PropTypes.func.isRequired
 };
 
