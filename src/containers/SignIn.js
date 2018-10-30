@@ -60,7 +60,7 @@ class SignIn extends Component {
             </div>
           </div>
         </header>
-        <section className="signup">
+        <section className="signin">
           <div className="container">
             <div className="tabarea">
               <div id="signin">
