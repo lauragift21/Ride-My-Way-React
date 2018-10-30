@@ -9,6 +9,7 @@
     "lint": "eslint ./ --fix",
     "test": "jest --verbose --coverage --detectOpenHandles --forceExit",
     "test:watch": "yarn test -- --watch",
+    "heroku-postbuild": "npm run build",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "repository": {
