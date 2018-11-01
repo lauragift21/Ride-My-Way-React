@@ -27,18 +27,18 @@ describe("signUp reducer", () => {
     });
   });
 
-  it("should handle SIGN_UP_SUCCESS", () => {
-    const action = {
-      type: types.SIGN_UP_SUCCESS,
-      payload: {
-        signin: { error: "", loading: false },
-        signup: { error: "", loading: false }
-      }
-    };
+  // it("should handle SIGN_UP_SUCCESS", () => {
+  //   const action = {
+  //     type: types.SIGN_UP_SUCCESS,
+  //     payload: {
+  //       signin: { error: "", loading: false },
+  //       signup: { error: "", loading: false }
+  //     }
+  //   };
 
-    expect(auth({}, action)).toEqual({
-      signin: { error: "", loading: false },
-      signup: { error: "", loading: false }
-    });
-  });
+  //   expect(auth({}, action)).toEqual({
+  //     signin: { error: "", loading: false },
+  //     signup: { error: "", loading: false }
+  //   });
+  // });
 });

@@ -45,7 +45,7 @@ class SignUp extends Component {
     const { firstname, lastname, email, password, location } = this.state;
     const { isAuthenticated } = this.props;
     if (isAuthenticated) {
-      return <Redirect to="/rides" />;
+      this.props.history.push("/rides");
     }
     const submitBtn = (
       <button type="submit" className="btn" id="submit">
@@ -158,6 +158,7 @@ class SignUp extends Component {
 SignUp.propTypes = {
   handleSignUp: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
+  history: PropTypes.object,
   clearFormError: PropTypes.func.isRequired
 };
 
