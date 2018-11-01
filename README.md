@@ -2,7 +2,6 @@
 # Ride-My-Way-React
 
 [![Build Status](https://travis-ci.org/lauragift21/Ride-My-Way-React.svg?branch=develop)](https://travis-ci.org/lauragift21/Ride-My-Way-React)
-[![Coverage Status](https://coveralls.io/repos/github/lauragift21/Ride-My-Way-React/badge.svg?branch=Add-coverall-code-coverage)](https://coveralls.io/github/lauragift21/Ride-My-Way-React?branch=Add-coverall-code-coverage)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/8a2e27f9bb301da35fc9/test_coverage)](https://codeclimate.com/github/lauragift21/Ride-My-Way-React/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8a2e27f9bb301da35fc9/maintainability)](https://codeclimate.com/github/lauragift21/Ride-My-Way-React/maintainability)
 
