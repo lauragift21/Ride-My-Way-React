@@ -28,7 +28,7 @@ const getRides = () => dispatch => {
     })
     .then(response => {
       dispatch(fetchRidesLoading(false));
-      dispatch(fetchRidesSuccess(response.data));
+      dispatch(fetchRidesSuccess(response.data.rides));
     })
     .catch(error => {
       dispatch(fetchRidesLoading(false));

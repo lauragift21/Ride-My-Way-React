@@ -15,19 +15,31 @@ describe("rides reducer", () => {
       loading: true
     });
   });
-  // it("should handle FETCH_RIDES_SUCCESS", () => {
-  //   const action = {
-  //     type: types.FETCH_RIDES_SUCCESS,
-  //     payload: {
-  //       data: []
-  //     }
-  //   };
-  //   expect(rides({}, action)).toEqual({
-  //     payload: {
-  //       data: []
-  //     }
-  //   });
-  // });
+  it("should handle FETCH_RIDES_SUCCESS", () => {
+    const action = {
+      type: types.FETCH_RIDES_SUCCESS,
+      payload: {
+        data: [
+          {
+            id: 1,
+            location: "lagos",
+            destination: "Ondo"
+          }
+        ]
+      }
+    };
+    expect(rides({}, action)).toEqual({
+      data: {
+        data: [
+          {
+            id: 1,
+            location: "lagos",
+            destination: "Ondo"
+          }
+        ]
+      }
+    });
+  });
   it("should handle FETCH_RIDES_ERROR", () => {
     const action = {
       type: types.FETCH_RIDES_ERROR,
