@@ -40,15 +40,6 @@ class Rides extends Component {
                   <Link to="#" className="menu-icon" />
                   <ul>
                     <li>
-                      <input
-                        type="search"
-                        name="search"
-                        id="search="
-                        placeholder="search rides.."
-                        className="search-ride"
-                      />
-                    </li>
-                    <li>
                       <Link to="./myRides">My Rides</Link>
                     </li>
                     <li>

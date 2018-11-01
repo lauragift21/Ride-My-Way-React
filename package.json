@@ -64,6 +64,7 @@
     "jsonwebtoken": "^8.3.0",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.11",
+    "moment": "^2.22.2",
     "prettier": "^1.14.3",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
