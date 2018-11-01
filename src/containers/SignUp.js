@@ -44,6 +44,7 @@ class SignUp extends Component {
   render() {
     const { firstname, lastname, email, password, location } = this.state;
     const { isAuthenticated } = this.props;
+
     if (isAuthenticated) {
       this.props.history.push("/rides");
     }
@@ -157,12 +158,12 @@ class SignUp extends Component {
 
 SignUp.propTypes = {
   handleSignUp: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool,
   history: PropTypes.object,
   clearFormError: PropTypes.func.isRequired
 };
 
-const mapStateToProps = auth => {
+const mapStateToProps = ({ auth }) => {
   const { isAuthenticated, loading } = auth;
   return {
     isAuthenticated,

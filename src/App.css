@@ -294,6 +294,8 @@ header .brand-center {
 .ride {
   background: url('./assets/img/street-3169981_960_720.jpg');
   background-size: 100%;
+  min-height: 100vh;
+
 }
 .card {
   background: #ffffffd9;

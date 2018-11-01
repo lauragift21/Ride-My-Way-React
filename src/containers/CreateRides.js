@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import PropTypes from "prop-types";
 // assets
 import car from "../assets/img/car.png";
@@ -19,6 +21,8 @@ class CreateRides extends Component {
       seats: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.notify = this.notify.bind(this);
   }
 
   handleChange = event => {
@@ -30,6 +34,10 @@ class CreateRides extends Component {
     const { handleRideRequest } = this.props;
     const { location, destination, departure, seats } = this.state;
     handleRideRequest(location, destination, departure, seats);
+  };
+
+  notify = () => {
+    toast("Ride created");
   };
 
   render() {
@@ -130,7 +138,13 @@ class CreateRides extends Component {
                       />
                     </div>
                     <div className="form-group button">
-                      <button type="submit" className="btn" id="submit">
+                      <button
+                        type="submit"
+                        onClick={this.notify}
+                        className="btn"
+                        id="submit"
+                      >
+                        <ToastContainer closeOnClick={false} />
                         Create Ride
                       </button>
                     </div>
@@ -147,11 +161,14 @@ class CreateRides extends Component {
 }
 
 CreateRides.propTypes = {
-  handleRideRequest: PropTypes.func.isRequired
+  handleRideRequest: PropTypes.func.isRequired,
+  rides: PropTypes.object,
+  error: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  rideRequest: state.rideRequest
+  rides: state.rideRequest.data,
+  error: state.rideRequest.error
 });
 
 const mapDispatchToProps = dispatch => ({
