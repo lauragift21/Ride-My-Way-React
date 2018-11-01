@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => (
   <section className="hero">
@@ -10,9 +11,9 @@ const Hero = () => (
         ride offers.
       </p>
       <div>
-        <a href="#">
+        <Link to="#">
           <button>Find a Ride</button>
-        </a>
+        </Link>
       </div>
     </div>
   </section>

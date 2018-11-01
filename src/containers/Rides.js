@@ -9,6 +9,7 @@ import getRides from "../actions/rides";
 import logOutUser from "../actions/auth";
 // components
 import Footer from "../components/Footer";
+import ViewRides from "../components/ViewRides";
 
 class Rides extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Rides extends Component {
   }
 
   render() {
-    // const { rides } = this.props;
+    const { rides } = this.props;
     return (
       <>
         <header>
@@ -80,20 +81,26 @@ class Rides extends Component {
                     <tr className="row">
                       <th>Location</th>
                       <th>Destination</th>
-                      <th>Departure time</th>
+                      <th>Departure Date</th>
                       <th>Seats Available</th>
                       <th>Request Ride</th>
                     </tr>
-                    <tr className="row">
-                      <td>Ade Bamiro</td>
-                      <td> Yaba Left </td>
-                      <td> Agege </td>
-                      <td> 3-07-2018 4PM</td>
-                      <td>3</td>
-                      <td>
-                        <button className="ride-success">Request</button>
-                      </td>
-                    </tr>
+                    {rides.data.map(ride => {
+                      const {
+                        id,
+                        location,
+                        destination,
+                        departure,
+                        seats
+                      } = ride;
+                      const details = {
+                        location,
+                        destination,
+                        departure,
+                        seats
+                      };
+                      return <ViewRides key={id} ride={details} />;
+                    })}
                   </tbody>
                 </table>
                 <div className="lds-ring" id="spinner">
