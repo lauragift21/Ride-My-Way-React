@@ -2,7 +2,6 @@
 # Ride-My-Way-React
 
 [![Build Status](https://travis-ci.org/lauragift21/Ride-My-Way-React.svg?branch=develop)](https://travis-ci.org/lauragift21/Ride-My-Way-React)
-[![Coverage Status](https://coveralls.io/repos/github/lauragift21/Ride-My-Way-React/badge.svg?branch=develop)](https://coveralls.io/github/lauragift21/Ride-My-Way-React?branch=Add-coverall-code-coverage)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/8a2e27f9bb301da35fc9/test_coverage)](https://codeclimate.com/github/lauragift21/Ride-My-Way-React/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8a2e27f9bb301da35fc9/maintainability)](https://codeclimate.com/github/lauragift21/Ride-My-Way-React/maintainability)
 
@@ -25,11 +24,11 @@ Ride-My-Way is a carpooling application that provides drivers with the ability t
 
 ## Technologies
 
-- Nodejs
-- Express
-- Mocha, Chai, Babel, eslint
-- Postgres
-- JWT authentication
+- React
+- Redux
+- Jest, Enzyme
+- Webpack
+- React Router
 
 ## API Endpoints
 
@@ -51,14 +50,14 @@ Ride-My-Way is a carpooling application that provides drivers with the ability t
 ```
 clone repo and cd into directory
 
-git clone https://github.com/lauragift21/Ride-My-Way.git
+git clone https://github.com/lauragift21/Ride-My-Way-React.git
 ```
 ```
 # install dependencies
 yarn install # or npm install
 
 #serve in development environment
-yarn run dev
+yarn start:dev
 
 # build for production
 yarn run build
@@ -74,6 +73,7 @@ yarn test
 ##
 
 API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1
+
 UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html
 
 ## AUTHOR
