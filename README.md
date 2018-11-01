@@ -25,11 +25,11 @@ Ride-My-Way is a carpooling application that provides drivers with the ability t
 
 ## Technologies
 
-- Nodejs
-- Express
-- Mocha, Chai, Babel, eslint
-- Postgres
-- JWT authentication
+- React
+- Redux
+- Jest, Enzyme
+- Webpack
+- React Router
 
 ## API Endpoints
 
@@ -51,14 +51,14 @@ Ride-My-Way is a carpooling application that provides drivers with the ability t
 ```
 clone repo and cd into directory
 
-git clone https://github.com/lauragift21/Ride-My-Way.git
+git clone https://github.com/lauragift21/Ride-My-Way-React.git
 ```
 ```
 # install dependencies
 yarn install # or npm install
 
 #serve in development environment
-yarn run dev
+yarn start:dev
 
 # build for production
 yarn run build
@@ -74,6 +74,7 @@ yarn test
 ##
 
 API Endpoint: https://ride-my-way-server.herokuapp.com/api/v1
+
 UI Template: https://lauragift21.github.io/Ride-My-Way/UI/index.html
 
 ## AUTHOR
