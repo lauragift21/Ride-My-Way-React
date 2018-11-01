@@ -19,7 +19,7 @@ const rideRequestError = payload => ({
 const rideRequest = (location, destination, departure, seats) => dispatch => {
   dispatch(rideRequestLoading(true));
   const { token } = localStorage;
-  axios
+  return axios
     .post(
       `${__API__}/api/v1/users/rides`,
       {

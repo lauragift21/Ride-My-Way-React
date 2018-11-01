@@ -19,7 +19,7 @@ const fetchRidesError = payload => ({
 const getRides = () => dispatch => {
   dispatch(fetchRidesLoading(true));
   const { token } = localStorage;
-  axios
+  return axios
     .get(`${__API__}/api/v1/rides`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ const getRides = () => dispatch => {
     .catch(error => {
       dispatch(fetchRidesLoading(false));
       if (error.response) {
-        return dispatch(fetchRidesError(error));
+        return dispatch(fetchRidesError(error.response));
       }
       return dispatch(
         fetchRidesError({
