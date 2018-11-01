@@ -11,7 +11,7 @@ export default function reducer(state = initialState.rides, action) {
     case types.FETCH_RIDES_SUCCESS:
       return {
         ...state,
-        data: action.payload.rides
+        data: action.payload
       };
     case types.FETCH_RIDES_ERROR:
       return {
