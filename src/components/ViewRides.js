@@ -11,7 +11,7 @@ const ViewRides = props => {
       <td> {moment(ride.departure).format("MMM DD, YYYY")} </td>
       <td> {ride.seats} </td>
       <td>
-        <button className="ride-success">Request</button>
+        <button className="button">View</button>
       </td>
     </tr>
   );

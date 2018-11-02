@@ -8,8 +8,9 @@ import PropTypes from "prop-types";
 import car from "../assets/img/car.png";
 // components
 import Footer from "../components/Footer";
-
+// actions
 import rideRequest from "../actions/CreateRides";
+import logOutUser from "../actions/auth";
 
 class CreateRides extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class CreateRides extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.notify = this.notify.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   handleChange = event => {
@@ -35,6 +37,11 @@ class CreateRides extends Component {
     const { location, destination, departure, seats } = this.state;
     handleRideRequest(location, destination, departure, seats);
   };
+
+  handleLogOut() {
+    const { logOutEvent } = this.props;
+    logOutEvent();
+  }
 
   notify = () => {
     toast("Ride created");
@@ -58,7 +65,7 @@ class CreateRides extends Component {
                   <Link to="/profile">Profile</Link>
                 </li>
                 <li>
-                  <Link to="/logout" id="logout">
+                  <Link to="/logout" onClick={this.handleLogOut} id="logout">
                     Logout
                   </Link>
                 </li>
@@ -163,7 +170,8 @@ class CreateRides extends Component {
 CreateRides.propTypes = {
   handleRideRequest: PropTypes.func.isRequired,
   rides: PropTypes.object,
-  error: PropTypes.string
+  error: PropTypes.string,
+  logOutEvent: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -174,6 +182,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleRideRequest(location, destination, departure, seats) {
     dispatch(rideRequest(location, destination, departure, seats));
+  },
+  logOutEvent() {
+    return dispatch(logOutUser());
   }
 });
 

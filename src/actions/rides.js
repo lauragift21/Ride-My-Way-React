@@ -16,6 +16,56 @@ const fetchRidesError = payload => ({
   payload
 });
 
+const getRideLoading = payload => ({
+  type: types.GET_RIDE_LOADING,
+  payload
+});
+
+const getRideSuccess = payload => ({
+  type: types.GET_RIDE_SUCCESS,
+  payload
+});
+
+const getRideError = payload => ({
+  type: types.GET_RIDE_ERROR,
+  payload
+});
+
+/**
+ * @description FETCH A SINGLE RIDE
+ * @returns {object}
+ */
+export const getSingleRide = rideId => dispatch => {
+  dispatch(getRideLoading(true));
+  const { token } = localStorage;
+  return axios
+    .get(`${__API__}/api/v1/rides/${rideId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      dispatch(getRideLoading(false));
+      dispatch(getRideSuccess(response.data));
+    })
+    .catch(error => {
+      dispatch(getRideLoading(false));
+      if (error.response) {
+        return dispatch(getRideError(error.response.data.message));
+      }
+      return dispatch(
+        getRideError({
+          error: { message: "Server unavailable at the moment" }
+        })
+      );
+    });
+};
+
+/**
+ * @description FETCH ALL RIDES
+ * @returns {object}
+ */
 const getRides = () => dispatch => {
   dispatch(fetchRidesLoading(true));
   const { token } = localStorage;

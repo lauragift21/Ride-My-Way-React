@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
 import auth from "./auth";
-import rides from "./rides";
+import rides, { oneRideReducer } from "./rides";
 import rideRequest from "./createRides";
 
 const rootReducer = combineReducers({
   auth,
   rides,
+  ride: oneRideReducer,
   rideRequest
 });
 

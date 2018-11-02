@@ -452,14 +452,13 @@ header .brand-center {
   nav:active ul {
     display: none;
     position: absolute;
-    padding: 20px;
+    right: 15px;
+    padding: 14px;
     background: #eee;
-    width: 50%;
-    border: 1px solid #444;
+    width: 40%;
   }
   nav li {
-    text-align: center;
-    width: 100%;
+    text-align: right;
     padding-top: 18px;
     display: block;
   }
