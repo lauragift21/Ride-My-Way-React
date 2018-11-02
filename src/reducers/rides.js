@@ -22,3 +22,25 @@ export default function reducer(state = initialState.rides, action) {
       return state;
   }
 }
+
+export const oneRideReducer = (state = initialState.ride, action) => {
+  switch (action.payload) {
+    case types.GET_RIDE_LOADING:
+      return {
+        ...state,
+        loading: action.payload
+      };
+    case types.GET_RIDE_SUCCESS:
+      return {
+        ...state,
+        ride: action.payload
+      };
+    case types.GET_RIDE_ERROR:
+      return {
+        ...state,
+        error: ""
+      };
+    default:
+      return state;
+  }
+};

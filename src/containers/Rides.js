@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 // assets
 import car from "../assets/img/car.png";
 // actions
-import getRides from "../actions/rides";
+import getRides, { getSingleRide } from "../actions/rides";
 import logOutUser from "../actions/auth";
 // components
 import Footer from "../components/Footer";
 import ViewRides from "../components/ViewRides";
+import Ride from "../components/Ride";
 
 class Rides extends Component {
   constructor(props) {
@@ -19,17 +20,18 @@ class Rides extends Component {
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(getRides());
+    const { fetchRides } = this.props;
+    fetchRides();
   }
 
   handleLogOut() {
-    const { dispatch } = this.props;
-    dispatch(logOutUser());
+    const { logOutEvent } = this.props;
+    logOutEvent();
   }
 
   render() {
     const { rides } = this.props;
+
     return (
       <>
         <header>
@@ -75,7 +77,6 @@ class Rides extends Component {
                 </nav>
               </div>
               <div className="rides-list">
-                <div className="error" id="alert" />
                 <table id="rides">
                   <tbody>
                     <tr className="row">
@@ -85,7 +86,7 @@ class Rides extends Component {
                       <th>Seats Available</th>
                       <th>Request Ride</th>
                     </tr>
-                    {rides.data.map(ride => {
+                    {rides.map(ride => {
                       const {
                         id,
                         location,
@@ -103,28 +104,8 @@ class Rides extends Component {
                     })}
                   </tbody>
                 </table>
-                <div className="lds-ring" id="spinner">
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
-                {/* The Modal */}
-                <div id="myModal" className="modal">
-                  {/* Modal content */}
-                  <div className="modal-content">
-                    <span className="close" id="close">
-                      ×
-                    </span>
-                    <div className="modal-title">
-                      <h1 className="text-center" style={{ color: "#333" }}>
-                        Ride Information
-                      </h1>
-                    </div>
-                    <div id="errMessage" />
-                    <div className="modal-table" id="details" />
-                  </div>
-                </div>
+                {/* modal */}
+                <Ride />
               </div>
             </div>
           </div>
@@ -136,12 +117,31 @@ class Rides extends Component {
 }
 
 Rides.propTypes = {
-  rides: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired
+  rides: PropTypes.array.isRequired,
+  ride: PropTypes.object.isRequired,
+  dispatch: PropTypes.func,
+  fetchRides: PropTypes.func.isRequired,
+  logOutEvent: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  rides: state.rides
+  ride: state.ride.data,
+  rides: state.rides.data
 });
 
-export default connect(mapStateToProps)(Rides);
+const mapDispatchToProps = dispatch => ({
+  fetchRides() {
+    return dispatch(getRides());
+  },
+  dispatchRide(rideId) {
+    return dispatch(getSingleRide(rideId));
+  },
+  logOutEvent() {
+    return dispatch(logOutUser());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Rides);
