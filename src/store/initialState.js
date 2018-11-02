@@ -16,12 +16,12 @@ const initialState = {
     error: "",
     loading: false
   },
-  ride: {
+  rideRequest: {
     data: {},
     error: "",
     loading: false
   },
-  rideRequest: {
+  requester: {
     data: {},
     error: "",
     loading: false

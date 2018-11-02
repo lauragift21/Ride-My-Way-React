@@ -13,7 +13,6 @@ class Modal extends Component {
       return null;
     }
     const { ride } = this.props;
-
     return (
       <div id="myModal" className="modal">
         {/* Modal content */}

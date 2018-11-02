@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-// assets
-import car from "../assets/img/car.png";
 // actions
 import getRides from "../actions/rides";
 import logOutUser from "../actions/auth";
 // components
 import Footer from "../components/Footer";
 import ViewRides from "../components/ViewRides";
+import NavBar from "../components/NavBar";
 
 class Rides extends Component {
   constructor(props) {
@@ -30,50 +29,27 @@ class Rides extends Component {
 
   render() {
     const { rides } = this.props;
-
     return (
       <>
-        <header>
-          <div className="container">
-            <div id="brand">
-              <Link to="/">
-                <img src={car} alt="brand" height="40px" />
-              </Link>
-            </div>
-            <nav>
-              <Link to="#" className="menu-icon" />
-              <ul>
-                <li>
-                  <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                  <Link to="/logout" onClick={this.handleLogOut} id="logout">
-                    Logout
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
+        <NavBar />
         <section className="ride">
           <div className="container">
             <h1 className="text-center">Dashboard</h1>
             <div className="card">
               <div className="card-header">
-                <nav>
-                  <Link to="#" className="menu-icon" />
-                  <ul>
+                <div className="">
+                  <ul className="menu-ride">
                     <li>
-                      <Link to="./myRides">My Rides</Link>
+                      <Link to="./Myrides">My Rides</Link>
                     </li>
                     <li>
                       <Link to="./rides">Available Rides</Link>
                     </li>
                     <li>
-                      <Link to="./offerRides">Create Ride Offer</Link>
+                      <Link to="./offerrides">Create Ride Offer</Link>
                     </li>
                   </ul>
-                </nav>
+                </div>
               </div>
               <div className="rides-list">
                 <table id="rides">
@@ -116,14 +92,12 @@ class Rides extends Component {
 
 Rides.propTypes = {
   rides: PropTypes.array.isRequired,
-  ride: PropTypes.object.isRequired,
   dispatch: PropTypes.func,
   fetchRides: PropTypes.func.isRequired,
   logOutEvent: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  ride: state.ride.data,
   rides: state.rides.data
 });
 

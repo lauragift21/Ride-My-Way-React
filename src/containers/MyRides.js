@@ -1,58 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // assets
-import car from "../assets/img/car.png";
 // components
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 class Rides extends Component {
   render() {
     return (
       <>
         <header>
-          <div className="container">
-            <div id="brand">
-              <Link to="/">
-                <img src={car} alt="brand" height="40px" />
-              </Link>
-            </div>
-            <nav>
-              <Link to="#" className="menu-icon" />
-              <ul>
-                <li>
-                  <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                  <Link to="/logout" id="logout">
-                    Logout
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
+          <NavBar />
         </header>
         <section className="ride">
           <div className="container">
             <h1 className="text-center">Dashboard</h1>
             <div className="card">
               <div className="card-header">
-                <nav>
-                  <Link to="#" className="menu-icon" />
-                  <ul>
-                    <li>
-                      <Link to="./myRides">My Rides</Link>
-                    </li>
-                    <li>
-                      <Link to="./rides">Available Rides</Link>
-                    </li>
-                    <li>
-                      <Link to="./offerRides">Create Ride Offer</Link>
-                    </li>
-                  </ul>
-                </nav>
+                <ul className="menu-ride">
+                  <li>
+                    <Link to="./Myrides">My Rides</Link>
+                  </li>
+                  <li>
+                    <Link to="./rides">Available Rides</Link>
+                  </li>
+                  <li>
+                    <Link to="./offerrides">Create Ride Offer</Link>
+                  </li>
+                </ul>
               </div>
               <div className="rides-list">
-                {/* <div className="error" id="alert" /> */}
                 <table id="rides">
                   <tbody>
                     <tr className="row">

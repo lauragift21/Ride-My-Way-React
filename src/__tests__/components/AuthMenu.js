@@ -5,7 +5,7 @@ import thunk from "redux-thunk";
 import { BrowserRouter as Router } from "react-router-dom";
 import configureMockStore from "redux-mock-store";
 import initialState from "../../store/initialState";
-import Modal from "../../components/Modal";
+import AuthMenu from "../../components/AuthMenu";
 
 const state = {
   ...initialState
@@ -15,12 +15,12 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore(state);
 
-describe("Modal component", () => {
-  test("renders the Modal component", () => {
+describe("AuthMenu component", () => {
+  test("renders the AuthMenu component", () => {
     const wrapper = mount(
       <Provider store={store}>
         <Router>
-          <Modal />
+          <AuthMenu />
         </Router>
       </Provider>
     );

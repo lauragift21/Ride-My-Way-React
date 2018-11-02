@@ -23,21 +23,20 @@ export default function reducer(state = initialState.rides, action) {
   }
 }
 
-export const oneRideReducer = (state = initialState.ride, action) => {
+export const requestReducer = (state = initialState.requester, action) => {
   switch (action.payload) {
-    case types.GET_RIDE_LOADING:
+    case types.RIDE_REQUEST_LOADING:
       return {
         ...state,
         loading: action.payload
       };
-    case types.GET_RIDE_SUCCESS:
+    case types.RIDE_REQUEST_SUCCESS:
       return {
         ...state,
-        ride: action.payload
+        request: action.payload
       };
-    case types.GET_RIDE_ERROR:
+    case types.RIDE_REQUEST_ERROR:
       return {
-        ...state,
         error: ""
       };
     default:
