@@ -52,7 +52,7 @@ class Rides extends Component {
                 </nav>
               </div>
               <div className="rides-list">
-                <div className="error" id="alert" />
+                {/* <div className="error" id="alert" /> */}
                 <table id="rides">
                   <tbody>
                     <tr className="row">
@@ -78,22 +78,6 @@ class Rides extends Component {
                   <div />
                   <div />
                   <div />
-                </div>
-                {/* The Modal */}
-                <div id="myModal" className="modal">
-                  {/* Modal content */}
-                  <div className="modal-content">
-                    <span className="close" id="close">
-                      ×
-                    </span>
-                    <div className="modal-title">
-                      <h1 className="text-center" style={{ color: "#333" }}>
-                        Ride Information
-                      </h1>
-                    </div>
-                    <div id="errMessage" />
-                    <div className="modal-table" id="details" />
-                  </div>
                 </div>
               </div>
             </div>
