@@ -52,24 +52,23 @@ class Rides extends Component {
                 </nav>
               </div>
               <div className="rides-list">
-                <div className="error" id="alert" />
+                {/* <div className="error" id="alert" /> */}
                 <table id="rides">
                   <tbody>
                     <tr className="row">
                       <th>Location</th>
                       <th>Destination</th>
-                      <th>Departure time</th>
+                      <th>Departure Date</th>
                       <th>Seats Available</th>
                       <th>Request Ride</th>
                     </tr>
                     <tr className="row">
-                      <td>Ade Bamiro</td>
                       <td> Yaba Left </td>
                       <td> Agege </td>
                       <td> 3-07-2018 4PM</td>
                       <td>3</td>
                       <td>
-                        <button className="ride-success">Request</button>
+                        <button className="button">Ride Details</button>
                       </td>
                     </tr>
                   </tbody>
@@ -79,22 +78,6 @@ class Rides extends Component {
                   <div />
                   <div />
                   <div />
-                </div>
-                {/* The Modal */}
-                <div id="myModal" className="modal">
-                  {/* Modal content */}
-                  <div className="modal-content">
-                    <span className="close" id="close">
-                      ×
-                    </span>
-                    <div className="modal-title">
-                      <h1 className="text-center" style={{ color: "#333" }}>
-                        Ride Information
-                      </h1>
-                    </div>
-                    <div id="errMessage" />
-                    <div className="modal-table" id="details" />
-                  </div>
                 </div>
               </div>
             </div>

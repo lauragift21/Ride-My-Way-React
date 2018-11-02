@@ -52,7 +52,7 @@ export const getSingleRide = rideId => dispatch => {
     .catch(error => {
       dispatch(getRideLoading(false));
       if (error.response) {
-        return dispatch(getRideError(error.response.data.message));
+        return dispatch(getRideError(error.response.data));
       }
       return dispatch(
         getRideError({
