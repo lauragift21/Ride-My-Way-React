@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 // assets
 import car from "../assets/img/car.png";
 // actions
-import getRides, { getSingleRide } from "../actions/rides";
+import getRides from "../actions/rides";
 import logOutUser from "../actions/auth";
 // components
 import Footer from "../components/Footer";
 import ViewRides from "../components/ViewRides";
-import Ride from "../components/Ride";
 
 class Rides extends Component {
   constructor(props) {
@@ -95,6 +94,7 @@ class Rides extends Component {
                         seats
                       } = ride;
                       const details = {
+                        id,
                         location,
                         destination,
                         departure,
@@ -104,8 +104,6 @@ class Rides extends Component {
                     })}
                   </tbody>
                 </table>
-                {/* modal */}
-                <Ride />
               </div>
             </div>
           </div>
@@ -132,9 +130,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchRides() {
     return dispatch(getRides());
-  },
-  dispatchRide(rideId) {
-    return dispatch(getSingleRide(rideId));
   },
   logOutEvent() {
     return dispatch(logOutUser());

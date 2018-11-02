@@ -58,18 +58,17 @@ class Rides extends Component {
                     <tr className="row">
                       <th>Location</th>
                       <th>Destination</th>
-                      <th>Departure time</th>
+                      <th>Departure Date</th>
                       <th>Seats Available</th>
                       <th>Request Ride</th>
                     </tr>
                     <tr className="row">
-                      <td>Ade Bamiro</td>
                       <td> Yaba Left </td>
                       <td> Agege </td>
                       <td> 3-07-2018 4PM</td>
                       <td>3</td>
                       <td>
-                        <button className="ride-success">Request</button>
+                        <button className="button">Ride Details</button>
                       </td>
                     </tr>
                   </tbody>

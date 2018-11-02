@@ -2,7 +2,7 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import getRides from "../../actions/rides";
+import getRides, { getSingleRide } from "../../actions/rides";
 import * as types from "../../actionTypes/rides";
 
 const middlewares = [thunk];
@@ -56,6 +56,17 @@ describe("load rides actions", () => {
         const recievedActions = store.getActions();
         const failureAction = recievedActions.find(
           action => action.type === types.FETCH_RIDES_ERROR
+        );
+        expect(failureAction).toBeTruthy();
+      });
+    });
+    it("dispatches GET_RIDE_ERROR", () => {
+      moxios.onGet(`${__API__}/api/v1/rides/2}`).networkError("server error");
+      const store = mockStore({ ride: {} });
+      return store.dispatch(getSingleRide()).then(() => {
+        const recievedActions = store.getActions();
+        const failureAction = recievedActions.find(
+          action => action.type === types.GET_RIDE_ERROR
         );
         expect(failureAction).toBeTruthy();
       });
