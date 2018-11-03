@@ -11,7 +11,7 @@ const Hero = () => (
         ride offers.
       </p>
       <div>
-        <Link to="#">
+        <Link to="/login">
           <button>Find a Ride</button>
         </Link>
       </div>

@@ -61,7 +61,7 @@ describe("load rides actions", () => {
       });
     });
     it("dispatches GET_RIDE_ERROR", () => {
-      moxios.onGet(`${__API__}/api/v1/rides/2}`).networkError("server error");
+      moxios.onGet(`${__API__}/api/v1/rides/2`).networkError("server error");
       const store = mockStore({ ride: {} });
       return store.dispatch(getSingleRide()).then(() => {
         const recievedActions = store.getActions();

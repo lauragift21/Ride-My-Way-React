@@ -256,7 +256,7 @@ header .brand-center {
   outline-color: #054752;
 }
 .text-email {
-  width: 31em;
+  width: 27em;
   margin-bottom: 3px;
   padding: 0.4rem;
   outline-color: #054752;
@@ -342,7 +342,7 @@ header .brand-center {
   width: 10em;
   margin: 0 10em ;
   position: relative;
-  left: 5rem;
+  left: -10px;
   top: 15px;
 }
 .trip-btn:hover {
@@ -524,7 +524,8 @@ header .brand-center {
     text-align: left;
   }
   .card-header a {
-    color: #054752;
+    color: #ffffff;
+    padding: 0;
   }
   .search-ride {
     width: 50vw;
@@ -545,6 +546,7 @@ header .brand-center {
     padding: 10px;
     font-size: 20px;
   }
+
 }
 
 /* iPads (portrait and landscape) ----------- */
@@ -566,6 +568,23 @@ header .brand-center {
   .portfolio-card {
     display: none;
   }
+  /* .trip-btn {
+    top: 15px;
+    width: 0em;
+    margin: 0;
+  } */
+  .modal-content {
+    width: 70%;
+  }
+  .trip-btn {
+    width: 7em;
+    left: 0;
+    margin: 0;
+  }
+  .menu-ride {
+    text-align: justify;
+    font-stretch: expanded;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -574,14 +593,24 @@ header .brand-center {
     margin: 0;
   }
   .trip-btn {
-    position: relative;
-    left: 6em;
-    top: 15px;
+    width: 7em;
+    left: 0;
+    margin: 0;
   }
+
   .req-btn {
     display: inline-block;
     position: relative;
     left: 4rem;
     top: 10px;
+  }
+  .modal-content {
+    width: 70%;
+  }
+  .menu-ride {
+    display: flex;
+     margin: 0;
+    padding: 0;
+    list-style: none;
   }
 }

@@ -1,29 +1,62 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import AuthMenu from "./AuthMenu";
+import Menu from "./Menu";
+import car from "../assets/img/car.png";
+import logOutUser from "../actions/auth";
 
-const NavBar = () => (
-  <header className="top-nav">
-    <div className="container">
-      <div id="brand">
-        <a href="/">
-          <div className="brand" />
-        </a>
-      </div>
-      <nav>
-        <Link to="/" className="menu-icon" />
-        <ul>
-          <li>
-            <Link to="/login">Sign In</Link>
-          </li>
-          <li>
-            <Link to="/register">
-              <button>Get Started</button>
+class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleLogOut = this.handleLogOut.bind(this);
+  }
+
+  handleLogOut() {
+    const { logOutEvent } = this.props;
+    logOutEvent();
+  }
+
+  render() {
+    const { auth } = this.props;
+    const Nav = auth.isAuthenticated ? (
+      <AuthMenu handleLogOut={this.handleLogOut} />
+    ) : (
+      <Menu />
+    );
+    return (
+      <header>
+        <div className="container">
+          <div id="brand">
+            <Link to="/">
+              <img src={car} alt="brand" height="40px" />
             </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-);
+          </div>
+          {Nav}
+        </div>
+      </header>
+    );
+  }
+}
 
-export default NavBar;
+Menu.propTypes = {
+  handleLogOut: PropTypes.func,
+  logOutEvent: PropTypes.func
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+const mapDispatchToProps = dispatch => ({
+  logOutEvent() {
+    return dispatch(logOutUser());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavBar);

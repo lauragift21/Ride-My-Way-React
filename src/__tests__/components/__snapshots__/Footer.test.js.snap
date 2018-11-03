@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component renders the Footer Component 1`] = `
+<footer
+  className="copyright"
+>
+  <div
+    className="container"
+  >
+    <h4>
+       © 2018 RideMyWay Inc.
+    </h4>
+  </div>
+</footer>
+`;

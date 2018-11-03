@@ -16,16 +16,9 @@ class ViewRides extends Component {
   }
 
   toggleModal = () => {
-    this.setState(
-      {
-        isOpen: !this.state.isOpen
-      },
-      () => {
-        const { dispatchRide, ride } = this.props;
-        const { id } = ride;
-        dispatchRide(id);
-      }
-    );
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   };
 
   render() {
@@ -56,7 +49,7 @@ class ViewRides extends Component {
 
 ViewRides.propTypes = {
   ride: PropTypes.object,
-  dispatchRide: PropTypes.func.isRequired
+  dispatchRide: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => ({

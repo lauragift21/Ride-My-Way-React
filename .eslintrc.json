@@ -21,6 +21,7 @@
   },
   "rules": {
     "class-methods-use-this": "off",
+    "react/prop-types": "off",
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-no-bind": [

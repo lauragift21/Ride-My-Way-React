@@ -20,7 +20,7 @@ const Profile = props => {
             <Link to="#" className="menu-icon" />
             <ul>
               <li>
-                <Link to="./Myrides">My Rides</Link>
+                <Link to="./rides">Rides</Link>
               </li>
               <li>
                 <Link to="/logout" id="logout">

@@ -4,13 +4,11 @@ import { connect } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PropTypes from "prop-types";
-// assets
-import car from "../assets/img/car.png";
 // components
 import Footer from "../components/Footer";
 // actions
 import rideRequest from "../actions/CreateRides";
-import logOutUser from "../actions/auth";
+import NavBar from "../components/NavBar";
 
 class CreateRides extends Component {
   constructor(props) {
@@ -32,10 +30,11 @@ class CreateRides extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     const { handleRideRequest } = this.props;
     const { location, destination, departure, seats } = this.state;
     handleRideRequest(location, destination, departure, seats);
+    this.input.value = "";
+    event.preventDefault();
   };
 
   handleLogOut() {
@@ -52,46 +51,24 @@ class CreateRides extends Component {
     return (
       <>
         <header>
-          <div className="container">
-            <div id="brand">
-              <Link to="/">
-                <img src={car} alt="brand" height="40px" />
-              </Link>
-            </div>
-            <nav>
-              <Link to="#" className="menu-icon" />
-              <ul>
-                <li>
-                  <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                  <Link to="/logout" onClick={this.handleLogOut} id="logout">
-                    Logout
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
+          <NavBar />
         </header>
         <section className="ride">
           <div className="container">
             <h1 className="text-center">Dashboard</h1>
             <div className="card">
               <div className="card-header">
-                <nav>
-                  <Link to="#" className="menu-icon" />
-                  <ul>
-                    <li>
-                      <Link to="./Myrides">My Rides</Link>
-                    </li>
-                    <li>
-                      <Link to="./rides">Available Rides</Link>
-                    </li>
-                    <li>
-                      <Link to="./offerrides">Create Ride Offer</Link>
-                    </li>
-                  </ul>
-                </nav>
+                <ul className="menu-ride">
+                  <li>
+                    <Link to="./Myrides">My Rides</Link>
+                  </li>
+                  <li>
+                    <Link to="./rides">Available Rides</Link>
+                  </li>
+                  <li>
+                    <Link to="./offerrides">Create Ride Offer</Link>
+                  </li>
+                </ul>
               </div>
               <div className="card-content">
                 <div className="form">
@@ -171,10 +148,12 @@ CreateRides.propTypes = {
   handleRideRequest: PropTypes.func.isRequired,
   rides: PropTypes.object,
   error: PropTypes.string,
-  logOutEvent: PropTypes.func.isRequired
+  history: PropTypes.object,
+  auth: PropTypes.object
 };
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   rides: state.rideRequest.data,
   error: state.rideRequest.error
 });
@@ -182,9 +161,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleRideRequest(location, destination, departure, seats) {
     dispatch(rideRequest(location, destination, departure, seats));
-  },
-  logOutEvent() {
-    return dispatch(logOutUser());
   }
 });
 
