@@ -78,6 +78,38 @@ export const getSingleRide = rideId => dispatch => {
 };
 
 /**
+ * @description FETCH ALL RIDES
+ * @returns {object}
+ */
+const getRides = () => dispatch => {
+  dispatch(fetchRidesLoading(true));
+  const { token } = localStorage;
+  return axios
+    .get(`${__API__}/api/v1/rides`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      dispatch(fetchRidesLoading(false));
+      dispatch(fetchRidesSuccess(response.data.rides));
+    })
+    .catch(error => {
+      dispatch(fetchRidesLoading(false));
+      if (error.response) {
+        return dispatch(fetchRidesError(error.response));
+      }
+      return dispatch(
+        fetchRidesError({
+          error: { message: "Server unavailable at the moment" }
+        })
+      );
+    });
+};
+export default getRides;
+
+/**
  * @description MAKE RIDE REQUEST
  * @returns {object}
  */
@@ -111,36 +143,3 @@ export const requestRides = rideId => dispatch => {
       );
     });
 };
-
-/**
- * @description FETCH ALL RIDES
- * @returns {object}
- */
-const getRides = () => dispatch => {
-  dispatch(fetchRidesLoading(true));
-  const { token } = localStorage;
-  return axios
-    .get(`${__API__}/api/v1/rides`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => {
-      dispatch(fetchRidesLoading(false));
-      dispatch(fetchRidesSuccess(response.data.rides));
-    })
-    .catch(error => {
-      dispatch(fetchRidesLoading(false));
-      if (error.response) {
-        return dispatch(fetchRidesError(error.response));
-      }
-      return dispatch(
-        fetchRidesError({
-          error: { message: "Server unavailable at the moment" }
-        })
-      );
-    });
-};
-
-export default getRides;

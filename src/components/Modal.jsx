@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { connect } from "react-redux";
+import { requestRides } from "../actions/rides";
 
 class Modal extends Component {
   constructor(props) {
@@ -59,4 +61,13 @@ Modal.propTypes = {
   ride: PropTypes.object
 };
 
-export default Modal;
+const mapDispatchToProps = dispatch => ({
+  dispatchRequest(rideId) {
+    return dispatch(requestRides(rideId));
+  }
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Modal);

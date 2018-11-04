@@ -10,7 +10,7 @@ const apiHost =
     : "'http://localhost:8000'";
 
 module.exports = {
-  entry: "./src/App.js",
+  entry: "./src/App.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -57,6 +57,9 @@ module.exports = {
   devtool: "cheap-module-source-map",
   devServer: {
     historyApiFallback: true
+  },
+  resolve: {
+    extensions: [".js", ".json", ".jsx", ".css"]
   },
   plugins: [
     new HtmlWebPackPlugin({
