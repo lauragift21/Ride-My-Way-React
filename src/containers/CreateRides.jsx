@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PropTypes from "prop-types";
 // components
-import { Footer } from "../components/Footer";
+import Footer from "../components/Footer";
 // actions
 import rideRequest from "../actions/CreateRides";
 import NavBar from "../components/NavBar";

@@ -10,7 +10,7 @@ const apiHost =
     : "'http://localhost:8000'";
 
 module.exports = {
-  entry: "./src/App.js",
+  entry: "./src/App.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
