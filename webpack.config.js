@@ -58,6 +58,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true
   },
+  resolve: {
+    extensions: [".js", ".json", ".jsx", ".css"]
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "public/index.html",
